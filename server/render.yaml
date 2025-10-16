@@ -2,9 +2,17 @@ services:
   - type: web
     name: crud-backend
     env: node
-    plan: free
     buildCommand: npm install
     startCommand: node server.js
-    repo: https://github.com/kndstore/crud
+    rootDir: backend
     branch: main
-    autoDeploy: true
+
+  - type: web
+    name: crud-frontend
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: build
+    rootDir: client
+    branch: main
+
+
